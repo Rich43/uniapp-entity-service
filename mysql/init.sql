@@ -1,10 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS entities;
-USE entities;
-CREATE USER IF NOT EXISTS 'entities'@'%' IDENTIFIED BY 'Password1';
-GRANT SELECT, INSERT, UPDATE, DELETE ON entities.entities TO 'entities'@'%';
-FLUSH PRIVILEGES;
 
-create table entities
+create table entities.entities
 (
     id     bigint unsigned auto_increment
         primary key,
@@ -21,3 +17,7 @@ create table entities
 );
 
 INSERT INTO entities.entities (id, name, parent) VALUES (1, 'root', 1);
+
+CREATE USER IF NOT EXISTS 'entities'@'%' IDENTIFIED BY 'Password1';
+GRANT SELECT, INSERT, UPDATE, DELETE ON entities.entities TO 'entities'@'%';
+FLUSH PRIVILEGES;
