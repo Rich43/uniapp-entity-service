@@ -1,11 +1,11 @@
-package com.wardsoft.uniappentityservice.model;
+package com.wardsoft.uniappentityservice.entities;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "entities", schema = "entities")
-public class EntitiesEntity {
+public class Entities {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
@@ -15,7 +15,7 @@ public class EntitiesEntity {
     private String name;
 
     @OneToOne(optional = false)
-    private EntitiesEntity parent;
+    private Entities parent;
 
     public Object getId() {
         return id;
@@ -37,7 +37,7 @@ public class EntitiesEntity {
         return parent;
     }
 
-    public void setParent(EntitiesEntity parent) {
+    public void setParent(Entities parent) {
         this.parent = parent;
     }
 
@@ -45,7 +45,7 @@ public class EntitiesEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EntitiesEntity that = (EntitiesEntity) o;
+        Entities that = (Entities) o;
         return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(parent, that.parent);
     }
 
