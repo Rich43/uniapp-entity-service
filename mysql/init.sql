@@ -5,7 +5,7 @@ create table entities.entities
     id     bigint unsigned auto_increment
         primary key,
     name   varchar(255)    not null,
-    parent bigint unsigned not null,
+    parent_id bigint unsigned not null,
     constraint unq_entities_name_parent
         unique (name, parent),
     constraint fk_entities_entities
